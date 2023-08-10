@@ -1,0 +1,16 @@
+.login {
+    height: 100vh;
+}
+
+.login__block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: var(--full-width);
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}

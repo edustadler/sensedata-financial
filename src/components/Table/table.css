@@ -1,0 +1,95 @@
+.table .container {
+    padding: 0;
+}
+
+.value-table {
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.value-table th,
+.value-table td {
+    border: solid 1px var(--soft-gray);
+    padding: .3125rem;
+    text-align: center;
+    color: var(--black);
+    position: relative;
+}
+
+.value-td-in::before {
+    content: '+';
+    position: relative;
+    font-size: 1.5625rem;
+    width: 15%;
+    font-weight: 600;
+    height: 100%;
+    color: var(--green);
+
+}
+
+.value-td-out::before {
+    content: '-';
+    color: var(--red);
+    position: relative;
+    font-size: 1.5625rem;
+    width: 15%;
+    height: 100%;
+
+}
+
+.value-td-in,
+.value-td-out {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.value-td-out svg path,
+.value-td-in svg path {
+    fill: #fff;
+}
+
+.btn-crud {
+    position: relative;
+    display: flex;
+    width: 15%;
+    gap: 0.3125rem;
+}
+
+.btn-crud button {
+    padding: .3125rem;
+}
+
+.update-value {
+    background-color: var(--blue);
+    border: none;
+    cursor: pointer;
+}
+
+.delete-value {
+    background-color: var(--red);
+    border: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 767px) {
+
+    .value-td-in,
+    .value-td-out {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        gap: 15px;
+    }
+
+    .btn-crud {
+        width: 100%;
+        justify-content: center;
+    }
+}

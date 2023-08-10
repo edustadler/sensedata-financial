@@ -1,0 +1,39 @@
+.header {
+    margin: 0;
+}
+
+.header__block {
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard-block.header .container {
+    border: none;
+    box-shadow: none;
+}
+
+.header__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .625rem;
+
+}
+
+.header__buttons button {
+    border: none;
+    box-shadow: none;
+    padding: .625rem;
+}
+
+.filter_btn {
+    background-color: var(--red);
+}
+
+.filter_btn svg path {
+    fill: var(--white);
+}
+
+.add_btn {
+    background-color: var(--blue);
+    color: var(--white);
+}

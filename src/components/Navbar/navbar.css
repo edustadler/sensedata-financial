@@ -1,0 +1,17 @@
+.navbar__block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__block .flex-align-center {
+    gap: .3125rem;
+}
+
+@media (max-width: 767px) {
+    .navbar__block {
+        flex-direction: column;
+        gap: .625rem;
+    }
+}
