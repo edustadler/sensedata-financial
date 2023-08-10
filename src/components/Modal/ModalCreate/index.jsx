@@ -2,10 +2,12 @@ import React, { useRef, useState } from "react"
 import "../modal.css"
 import authController from "../../../routes/authController";
 import { useCrudContext } from "../../../contexts/crudContext";
+import { toast } from "react-toastify";
 
 
 export const ModalCreate = () => {
-
+    
+    const customIdError = "preventTwice";
     const { addNewCrud } = useCrudContext();
     const [isOpen, setIsOpen] = useState(true)
 
@@ -47,6 +49,10 @@ export const ModalCreate = () => {
             }
         } catch (error) {
             console.error("Error creating data:", error);
+            toast('Erro ao Contatar o banco de dados!', {
+                toastId: customIdError,
+                autoClose: 700
+            })
         }
     };
 

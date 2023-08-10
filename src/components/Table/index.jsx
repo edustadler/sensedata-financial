@@ -86,10 +86,7 @@ export const Table = ({ filterData }) => {
             );
 
             setFilteredData(filtered);
-            toast('Erro ao Contatar o banco de dados!', {
-                toastId: customIdError,
-                autoClose: 700
-            })
+           
         } catch (error) {
             console.error('Error fetching CRUD data:', error);
             toast.error('Falha ao carregar valores', {
