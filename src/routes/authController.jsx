@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://backend-two-mu.vercel.app:9900/api';
+const API_BASE_URL = 'https://backend-2m8bdmbti-edustadler.vercel.app:9900/api';
 
 const authController = {
     getCrudData: async () => {
