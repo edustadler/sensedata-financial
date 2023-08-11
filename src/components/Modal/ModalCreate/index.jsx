@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 export const ModalCreate = () => {
 
+    const customIdErrorOne = "preventOnce";
     const customIdError = "preventTwice";
     const { addNewCrud } = useCrudContext();
     const [isOpen, setIsOpen] = useState(true)
@@ -37,12 +38,16 @@ export const ModalCreate = () => {
             if (response.status === 200) {
                 addNewCrud(response.data);
                 setIsOpen(false);
+                toast('Nova transação realizada!', {
+                    toastId: customIdErrorOne,
+                    autoClose: 1000
+                })
             }
         } catch (error) {
             console.error("Error creating data:", error);
             toast('Erro ao Contatar o banco de dados!', {
                 toastId: customIdError,
-                autoClose: 700
+                autoClose: 1000
             });
         }
     };

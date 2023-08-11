@@ -43,7 +43,7 @@ export const ModalUpdate = ({ selectedData, closeModal }) => {
                 )
             );
 
-            toast.success('Transação atualizada', { autoClose: 700 });
+            toast.success('Transação atualizada', { autoClose: 1000 });
         } catch (error) {
             console.error("Error updating data:", error);
         }

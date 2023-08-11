@@ -44,7 +44,7 @@ export const Filter = ({ onFilter }) => {
         }, filtered);
 
         toast('Filtro Aplicado com sucesso!', {
-            autoClose: 700
+            autoClose: 1000
         })
     };
 

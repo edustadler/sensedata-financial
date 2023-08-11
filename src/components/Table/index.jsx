@@ -39,7 +39,7 @@ export const Table = ({ filterData }) => {
 
                 toast("Transação deletada!", {
                     toastId: customId,
-                    autoClose: 700
+                    autoClose: 1000
                 });
             }
         } catch (error) {
@@ -58,13 +58,13 @@ export const Table = ({ filterData }) => {
                 setCrudData(data);
                 toast("Movimentação atualizada!", {
                     toastId: customId,
-                    autoClose: 700
+                    autoClose: 1000
                 });
             } catch (error) {
                 console.error('Error fetching CRUD data:', error);
                 toast.error('Falha ao carregar valores', {
                     toastId: customIdError,
-                    autoClose: 700
+                    autoClose: 1000
                 });
             }
         }
@@ -92,7 +92,7 @@ export const Table = ({ filterData }) => {
             console.error('Error fetching CRUD data:', error);
             toast.error('Falha ao carregar valores', {
                 toastId: customIdError,
-                autoClose: 700
+                autoClose: 1000
             });
         }
 

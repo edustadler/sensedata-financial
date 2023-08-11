@@ -37,7 +37,7 @@ export function CrudProvider({ children }) {
                 console.error('Error fetching CRUD data:', error);
                 toast.error('Falha ao carregar valores', {
                     toastId: customIdErrorContext,
-                    autoClose: 700
+                    autoClose: 1000
                 });
             }
         }
