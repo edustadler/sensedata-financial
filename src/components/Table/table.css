@@ -20,7 +20,7 @@
     content: '+';
     position: relative;
     font-size: 1.5625rem;
-    width: 15%;
+    width: 20%;
     font-weight: 600;
     height: 100%;
     color: var(--green);
@@ -32,7 +32,7 @@
     color: var(--red);
     position: relative;
     font-size: 1.5625rem;
-    width: 15%;
+    width: 20%;
     height: 100%;
 
 }
@@ -56,7 +56,7 @@
 .btn-crud {
     position: relative;
     display: flex;
-    width: 15%;
+    width: 20%;
     gap: 0.3125rem;
 }
 

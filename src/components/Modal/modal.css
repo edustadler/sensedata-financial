@@ -54,6 +54,10 @@
     left: 0;
 }
 
+.modal__form {
+    width: var(--full-width);
+}
+
 .modal__form input,
 .modal__form select {
     border: solid 1px #c3c3c3;
@@ -89,5 +93,11 @@
 
     .modal__form input, .modal__form select {
         width: 100%;
+    }
+}
+
+@media (max-width: 1440px) {
+    .modal__container {
+        width: 70%;
     }
 }

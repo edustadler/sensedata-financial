@@ -23,6 +23,7 @@ export const Navbar = ({ filteredData }) => {
         setTotalEntry(entryTotal);
         setTotalOut(outTotal);
         setTotal(entryTotal - outTotal);
+        console.log(entryTotal, outTotal)
     }, [crudData]);
 
     //Soma quando filtra
@@ -47,7 +48,7 @@ export const Navbar = ({ filteredData }) => {
                 <div className="navbar__block">
                     <div className="navbar__filter flex-align-center">
                         <h3>Total de entrada:</h3>
-                        <span>R${totalEntry.toFixed(2)}</span>
+                        <span>R$ {totalEntry.toFixed(2)} </span>
                     </div>
                     <div className="navbar__filter flex-align-center">
                         <h3>Total de saída:</h3>

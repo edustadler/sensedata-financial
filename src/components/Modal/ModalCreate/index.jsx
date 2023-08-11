@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 
 export const ModalCreate = () => {
-    
+
     const customIdError = "preventTwice";
     const { addNewCrud } = useCrudContext();
     const [isOpen, setIsOpen] = useState(true)
@@ -17,7 +17,7 @@ export const ModalCreate = () => {
 
     const ref = useRef()
     const [formData, setFormData] = useState({
-        nome: "",
+        titulo: "",
         categoria: "",
         tipo: "",
         valor: ""
@@ -35,26 +35,18 @@ export const ModalCreate = () => {
 
             const response = await authController.createData(formDataWithDate);
             if (response.status === 200) {
-                // Add the new entry using the addNewCrud function from the context
                 addNewCrud(response.data);
-
-                setFormData({
-                    nome: "",
-                    categoria: "",
-                    tipo: "",
-                    valor: ""
-                });
                 setIsOpen(false);
-                window.location.reload();
             }
         } catch (error) {
             console.error("Error creating data:", error);
             toast('Erro ao Contatar o banco de dados!', {
                 toastId: customIdError,
                 autoClose: 700
-            })
+            });
         }
     };
+
 
     return (
         <>
@@ -76,9 +68,9 @@ export const ModalCreate = () => {
                                             name="name"
                                             type="text"
                                             placeholder="Nome da movimentação"
-                                            value={formData.nome}
+                                            value={formData.titulo}
                                             onChange={(e) =>
-                                                setFormData({ ...formData, nome: e.target.value })
+                                                setFormData({ ...formData, titulo: e.target.value })
                                             }
                                         />
                                     </label>

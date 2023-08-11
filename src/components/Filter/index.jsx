@@ -10,7 +10,6 @@ export const Filter = ({ onFilter }) => {
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedType, setSelectedType] = useState("");
     const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
 
     const uniqueCategories = [...new Set(crudData.map(item => item.categoria))];
     const uniqueTypes = [...new Set(crudData.map(item => item.tipo))];
@@ -27,25 +26,21 @@ export const Filter = ({ onFilter }) => {
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
     };
-    //Data (to)
-    const handleEndDateChange = (event) => {
-        setEndDate(event.target.value);
-    };
+
 
     //Função do botão
     const handleFilterClick = () => {
         const filtered = crudData.filter(item =>
             (!selectedCategory || item.categoria === selectedCategory) &&
             (!selectedType || item.tipo === selectedType) &&
-            (!startDate || new Date(item.data) >= new Date(startDate)) &&
-            (!endDate || new Date(item.data) <= new Date(endDate))
+            (!startDate || new Date(item.data) >= new Date(startDate))
         );
 
         onFilter({
             selectedCategory,
             selectedType,
             startDate,
-            endDate
+
         }, filtered);
 
         toast('Filtro Aplicado com sucesso!', {
@@ -85,12 +80,6 @@ export const Filter = ({ onFilter }) => {
                             type="date"
                             value={startDate}
                             onChange={handleStartDateChange}
-                        />
-                        <span> - </span>
-                        <input
-                            type="date"
-                            value={endDate}
-                            onChange={handleEndDateChange}
                         />
                     </div>
                     <div className="filter__button">

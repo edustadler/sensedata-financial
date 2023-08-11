@@ -2,17 +2,19 @@ import React, { useEffect, useRef, useState } from "react"
 import "../modal.css"
 import authController from "../../../routes/authController";
 import { toast } from "react-toastify";
+import { useCrudContext } from "../../../contexts/crudContext";
 
-export const ModalUpdate = ({ selectedData }) => {
+export const ModalUpdate = ({ selectedData, closeModal }) => {
 
     const ref = useRef();
+    const { setCrudData } = useCrudContext();
     const [isOpen, setIsOpen] = useState(true)
     const [shouldRefresh, setShouldRefresh] = useState(false);
     const [formData, setFormData] = useState({
-        nome: selectedData.nome,
-        categoria: selectedData.categoria,
-        tipo: selectedData.tipo,
-        valor: selectedData.valor
+        titulo: selectedData ? selectedData.titulo : '',
+        categoria: selectedData ? selectedData.categoria : '',
+        tipo: selectedData ? selectedData.tipo : '',
+        valor: selectedData ? selectedData.valor : ''
     });
 
 
@@ -32,11 +34,15 @@ export const ModalUpdate = ({ selectedData }) => {
                 data: formattedDate,
             };
 
-            const response = await authController.updateData(selectedData.id, updatedData);
-            if (response.status === 200 || response.status === 204) {
-                setIsOpen(false);
-            }
-            setShouldRefresh(true);
+            const response = await authController.updateData(selectedData._id, updatedData);
+            setIsOpen(false); // Close the modal
+
+            setCrudData(prevCrudData =>
+                prevCrudData.map(item =>
+                    item._id === selectedData._id ? { ...item, ...updatedData } : item
+                )
+            );
+
             toast.success('Transação atualizada', { autoClose: 700 });
         } catch (error) {
             console.error("Error updating data:", error);
@@ -45,11 +51,13 @@ export const ModalUpdate = ({ selectedData }) => {
 
 
 
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        const parsedValue = name === 'valor' ? parseFloat(value) : value;
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: value
+            [name]: parsedValue
         }));
     };
 
@@ -78,12 +86,12 @@ export const ModalUpdate = ({ selectedData }) => {
                                     e.preventDefault();
                                     handleUpdate(formData);
                                 }} ref={ref}>
-                                    <label htmlFor='name'>
+                                    <label htmlFor='titulo'>
                                         <input
-                                            name="nome"
+                                            name="titulo"
                                             type="text"
                                             placeholder="Nome da movimentação"
-                                            value={formData.nome}
+                                            value={formData.titulo}
                                             onChange={handleInputChange}
                                         />
                                     </label>

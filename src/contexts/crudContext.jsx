@@ -21,8 +21,8 @@ export function CrudProvider({ children }) {
 
     const addNewCrud = newData => {
         setCrudData(prevCrudData => [...prevCrudData, newData]);
-        setNewDataAdded(true);
     };
+
 
 
 

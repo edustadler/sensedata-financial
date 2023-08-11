@@ -34,7 +34,7 @@ export const Table = ({ filterData }) => {
         try {
             const response = await authController.deleteData(id);
             if (response.status === 200) {
-                const updatedCrudData = crudData.filter(item => item.id !== id);
+                const updatedCrudData = crudData.filter(item => item._id !== id);
                 setCrudData(updatedCrudData);
 
                 toast("Transação deletada!", {
@@ -49,6 +49,7 @@ export const Table = ({ filterData }) => {
             });
         };
     };
+
 
     useEffect(() => {
         async function fetchData() {
@@ -86,7 +87,7 @@ export const Table = ({ filterData }) => {
             );
 
             setFilteredData(filtered);
-           
+
         } catch (error) {
             console.error('Error fetching CRUD data:', error);
             toast.error('Falha ao carregar valores', {
@@ -113,7 +114,7 @@ export const Table = ({ filterData }) => {
                         {
                             filteredData.map((values, index) => (
                                 <tr key={index}>
-                                    <td>{values.nome}</td>
+                                    <td>{values.titulo}</td>
                                     <td>{values.categoria}</td>
                                     <td>{values.data}</td>
 
@@ -123,7 +124,7 @@ export const Table = ({ filterData }) => {
                                             <p>R${values.valor}</p>
                                             <div className="btn-crud">
                                                 <button className="update-value" onClick={() => openUpdateModal(values)}><AiTwotoneEdit /></button>
-                                                <button className="delete-value" onClick={() => handleDelete(values.id)}><AiOutlineDelete /></button>
+                                                <button className="delete-value" onClick={() => handleDelete(values._id)}><AiOutlineDelete /></button>
                                             </div>
                                         </td>
                                         :
@@ -131,7 +132,7 @@ export const Table = ({ filterData }) => {
                                             <p>R${values.valor}</p>
                                             <div className="btn-crud">
                                                 <button className="update-value" onClick={() => openUpdateModal(values)}><AiTwotoneEdit /></button>
-                                                <button className="delete-value" onClick={() => handleDelete(values.id)}><AiOutlineDelete /></button>
+                                                <button className="delete-value" onClick={() => handleDelete(values._id)}><AiOutlineDelete /></button>
                                             </div>
                                         </td>
                                     }
