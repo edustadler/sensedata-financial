@@ -99,7 +99,7 @@ export const ModalUpdate = ({ selectedData, closeModal }) => {
                                         <input
                                             name="categoria"
                                             type="text"
-                                            placeholder="Categoria da movimentação (ex: 'Viagem') "
+                                            placeholder="Categoria (ex: 'Viagem') "
                                             value={formData.categoria}
                                             onChange={handleInputChange}
                                         />
