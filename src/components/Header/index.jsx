@@ -1,33 +1,23 @@
-import React, { useState } from "react"
+import React from "react"
 import { DashboardBlock } from "../DashboardBlock"
-import { ModalCreate } from "../Modal/ModalCreate"
 import { AiTwotoneFilter } from "react-icons/ai"
-import "./header.css"
+import { AddButton, FilterButton, HeaderApp, HeaderButtons } from "./style"
 
-export const Header = ({ clickFilter }) => {
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const openModal = () => {
-        setIsModalOpen(!isModalOpen);
-        console.log('work')
-    };
+export const Header = ({ clickFilter, openModal }) => {
 
     return (
         <>
-            <header>
-                <DashboardBlock ownClass={'header'}>
-                    <div className="header__block">
+            <HeaderApp>
+                <DashboardBlock ownClass="header">
+                    <div className="flex-space-between">
                         <h3>Dashboard</h3>
-                        <div className="header__buttons">
-                            <button onClick={clickFilter} className="filter_btn"><AiTwotoneFilter /></button>
-                            <button onClick={openModal} className="add_btn">Novo +</button>
-                        </div>
+                        <HeaderButtons>
+                            <FilterButton onClick={clickFilter}><AiTwotoneFilter /></FilterButton>
+                            <AddButton onClick={openModal}>Novo +</AddButton>
+                        </HeaderButtons>
                     </div>
                 </DashboardBlock>
-            </header>
-
-            {isModalOpen && <ModalCreate />}
+            </HeaderApp>
         </>
     )
 }

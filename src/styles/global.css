@@ -35,6 +35,10 @@ body {
     background-color: var(--white);
 }
 
+.header {
+    margin: 0;
+}
+
 table {
     border-spacing: 0;
 }
@@ -53,6 +57,12 @@ table {
 .flex-align-center {
     display: flex;
     align-items: center;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    width: var(--full-width);
 }
 
 .dashboard-block {

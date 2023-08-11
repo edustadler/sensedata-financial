@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { DashboardBlock } from "../DashboardBlock";
 import { useCrudContext } from "../../contexts/crudContext";
-import "./filter.css";
 import { toast } from "react-toastify";
+import { FilterButton, FilterCategory, FilterContainer, FilterDate, FilterType, FilterWrapper } from "./styled";
 
 export const Filter = ({ onFilter }) => {
 
@@ -50,9 +49,9 @@ export const Filter = ({ onFilter }) => {
 
     return (
         <>
-            <DashboardBlock ownClass={'filter-modal'}>
-                <div className="filter">
-                    <div className="filter__category flex-align-center">
+            <FilterContainer ownClass="filter-modal">
+                <FilterWrapper className="filter">
+                    <FilterCategory className="filter__category flex-align-center">
                         <h3>Filtrar por categoria</h3>
                         <select value={selectedCategory} onChange={handleCategoryChange}>
                             <option value="">Todas</option>
@@ -62,8 +61,8 @@ export const Filter = ({ onFilter }) => {
                                 </option>
                             ))}
                         </select>
-                    </div>
-                    <div className="filter__type flex-align-center">
+                    </FilterCategory>
+                    <FilterType className="filter__type flex-align-center">
                         <h3>Filtrar por tipo</h3>
                         <select value={selectedType} onChange={handleTypeChange}>
                             <option value="">Todos</option>
@@ -73,20 +72,20 @@ export const Filter = ({ onFilter }) => {
                                 </option>
                             ))}
                         </select>
-                    </div>
-                    <div className="filter__date flex-align-center">
+                    </FilterType>
+                    <FilterDate className="filter__date flex-align-center">
                         <h3>Filtrar à partir de: </h3>
                         <input
                             type="date"
                             value={startDate}
                             onChange={handleStartDateChange}
                         />
-                    </div>
-                    <div className="filter__button">
+                    </FilterDate>
+                    <FilterButton className="filter__button">
                         <button onClick={handleFilterClick}>Filtrar</button>
-                    </div>
-                </div>
-            </DashboardBlock>
+                    </FilterButton>
+                </FilterWrapper>
+            </FilterContainer>
         </>
     );
 };

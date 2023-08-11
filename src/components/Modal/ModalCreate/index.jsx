@@ -5,18 +5,13 @@ import { useCrudContext } from "../../../contexts/crudContext";
 import { toast } from "react-toastify";
 
 
-export const ModalCreate = () => {
+export const ModalCreate = ({ isOpen, onClose }) => {
 
     const customIdErrorOne = "preventOnce";
     const customIdError = "preventTwice";
     const { addNewCrud } = useCrudContext();
-    const [isOpen, setIsOpen] = useState(true)
 
-    const OpenModalAdd = () => {
-        setIsOpen(!isOpen)
-    }
-
-    const ref = useRef()
+    const ref = useRef();
     const [formData, setFormData] = useState({
         titulo: "",
         categoria: "",
@@ -32,16 +27,18 @@ export const ModalCreate = () => {
             const formDataWithDate = {
                 ...data,
                 data: formattedDate,
+                titulo: data.titulo || "Sem nome",
+                categoria: data.categoria || "Geral",
             };
 
             const response = await authController.createData(formDataWithDate);
             if (response.status === 200) {
                 addNewCrud(response.data);
-                setIsOpen(false);
+                onClose(); // Close the modal using the onClose prop
                 toast('Nova transação realizada!', {
                     toastId: customIdErrorOne,
                     autoClose: 1000
-                })
+                });
             }
         } catch (error) {
             console.error("Error creating data:", error);
@@ -61,7 +58,7 @@ export const ModalCreate = () => {
                         <div className="modal__block">
                             <div className="modal__header">
                                 <h3>Nova movimentação</h3>
-                                <div className="modal__close" onClick={OpenModalAdd}></div>
+                                <div className="modal__close" onClick={onClose}></div>
                             </div>
                             <div className="modal__form">
                                 <form action="" ref={ref} onSubmit={(e) => {

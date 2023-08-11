@@ -32,10 +32,11 @@ export const ModalUpdate = ({ selectedData, closeModal }) => {
             const updatedData = {
                 ...data,
                 data: formattedDate,
+                categoria: data.categoria || "Geral",
             };
 
             const response = await authController.updateData(selectedData._id, updatedData);
-            setIsOpen(false); // Close the modal
+            setIsOpen(false);
 
             setCrudData(prevCrudData =>
                 prevCrudData.map(item =>
