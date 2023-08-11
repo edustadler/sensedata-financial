@@ -75,7 +75,7 @@ export const Filter = ({ onFilter }) => {
                         </select>
                     </div>
                     <div className="filter__date flex-align-center">
-                        <h3>Filtrar por data</h3>
+                        <h3>Filtrar à partir de: </h3>
                         <input
                             type="date"
                             value={startDate}

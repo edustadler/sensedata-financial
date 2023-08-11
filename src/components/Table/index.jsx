@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { DashboardBlock } from "../DashboardBlock";
 import { useCrudContext } from "../../contexts/crudContext";
-import './table.css';
 import { toast } from "react-toastify";
 import authController from "../../routes/authController";
 import { ModalUpdate } from "../Modal/ModalUpdate";
 import { AiOutlineDelete, AiTwotoneEdit } from "react-icons/ai"
+import './table.css';
 
 
 export const Table = ({ filterData }) => {

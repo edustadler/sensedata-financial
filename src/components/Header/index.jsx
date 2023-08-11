@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { DashboardBlock } from "../DashboardBlock"
-import "./header.css"
 import { ModalCreate } from "../Modal/ModalCreate"
 import { AiTwotoneFilter } from "react-icons/ai"
+import "./header.css"
 
 export const Header = ({ clickFilter }) => {
 
