@@ -84,7 +84,7 @@ export const ModalCreate = () => {
                                             name="categoria"
                                             type="text"
                                             placeholder="Categoria (ex: 'Viagem')"
-                                            value={formData.categoria}
+                                            value={formData.categoria || 'Geral'}
                                             onChange={(e) =>
                                                 setFormData({ ...formData, categoria: e.target.value })
                                             }
