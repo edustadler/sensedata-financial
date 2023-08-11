@@ -78,7 +78,7 @@ export const ModalCreate = () => {
                                         <input
                                             name="categoria"
                                             type="text"
-                                            placeholder="Categoria da movimentação (ex: 'Viagem')"
+                                            placeholder="Categoria (ex: 'Viagem')"
                                             value={formData.categoria}
                                             onChange={(e) =>
                                                 setFormData({ ...formData, categoria: e.target.value })
