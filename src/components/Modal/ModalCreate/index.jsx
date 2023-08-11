@@ -73,9 +73,9 @@ export const ModalCreate = () => {
                                             name="name"
                                             type="text"
                                             placeholder="Nome da movimentação"
-                                            value={formData.titulo || "Vazio"}
+                                            value={formData.titulo}
                                             onChange={(e) =>
-                                                setFormData({ ...formData, titulo: e.target.value })
+                                                setFormData({ ...formData, titulo: e.target.value || "Vazio" })
                                             }
                                         />
                                     </label>
@@ -86,7 +86,7 @@ export const ModalCreate = () => {
                                             placeholder="Categoria (ex: 'Viagem')"
                                             value={formData.categoria || 'Geral'}
                                             onChange={(e) =>
-                                                setFormData({ ...formData, categoria: e.target.value })
+                                                setFormData({ ...formData, categoria: e.target.value || "Geral" })
                                             }
                                         />
                                     </label>
