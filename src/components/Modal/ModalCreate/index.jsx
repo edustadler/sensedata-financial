@@ -73,7 +73,7 @@ export const ModalCreate = () => {
                                             name="name"
                                             type="text"
                                             placeholder="Nome da movimentação"
-                                            value={formData.titulo}
+                                            value={formData.titulo || "Vazio"}
                                             onChange={(e) =>
                                                 setFormData({ ...formData, titulo: e.target.value })
                                             }
