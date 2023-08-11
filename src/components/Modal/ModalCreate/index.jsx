@@ -75,7 +75,7 @@ export const ModalCreate = () => {
                                             placeholder="Nome da movimentação"
                                             value={formData.titulo}
                                             onChange={(e) =>
-                                                setFormData({ ...formData, titulo: e.target.value !== '' ? e.target.value : "Vazio" })
+                                                setFormData({ ...formData, titulo: e.target.value !== '' ? e.target.value : "Sem nome" })
                                             }
                                         />
                                     </label>
